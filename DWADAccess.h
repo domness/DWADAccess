@@ -14,5 +14,6 @@
 + (void)saveDictionary:(NSDictionary *)dictionary withKey:(NSString *)key;
 + (NSDictionary *)loadDictionaryForKey:(NSString *)key;
 + (void)deleteObjectForKey:(NSString *)key;
++ (BOOL)fileExistsForKey:(NSString *)key;
 
 @end

@@ -60,4 +60,12 @@
     [fm removeItemAtPath:filePath error:NULL];
 }
 
++ (BOOL)fileExistsForKey:(NSString *)key
+{
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentsDirectory = [paths objectAtIndex:0];
+    NSString * filePath = [documentsDirectory stringByAppendingPathComponent:key];
+    return [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+}
+
 @end
