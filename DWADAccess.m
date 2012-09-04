@@ -68,4 +68,25 @@
     return [[NSFileManager defaultManager] fileExistsAtPath:filePath];
 }
 
++ (void)saveImage:(UIImage *)image withKey:(NSString *)key
+{
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentsDirectory = [paths objectAtIndex:0];
+    NSString * filename = [documentsDirectory stringByAppendingPathComponent:key];
+    [NSKeyedArchiver archiveRootObject:image toFile:filename];
+}
+
++ (UIImage *)loadImageForKey:(NSString *)key
+{
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentsDirectory = [paths objectAtIndex:0];
+    NSString * filePath = [documentsDirectory stringByAppendingPathComponent:key];
+    UIImage * image = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    if (image) {
+        return image;
+    } else {
+        return nil;
+    }
+}
+
 @end

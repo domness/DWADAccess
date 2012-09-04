@@ -15,5 +15,7 @@
 + (NSDictionary *)loadDictionaryForKey:(NSString *)key;
 + (void)deleteObjectForKey:(NSString *)key;
 + (BOOL)fileExistsForKey:(NSString *)key;
++ (void)saveImage:(UIImage *)image withKey:(NSString *)key;
++ (UIImage *)loadImageForKey:(NSString *)key;
 
 @end
